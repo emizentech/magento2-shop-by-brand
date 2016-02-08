@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Emizentech. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Module/etc/module.xsd">
+    <module name="Emizentech_ShopByBrand" setup_version="0.0.1" />
+</config>

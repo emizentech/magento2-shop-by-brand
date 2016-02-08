@@ -1,0 +1,22 @@
+<?php 
+$brands = $this->getBrands();
+?>
+
+<div class="block block-compare" data-bind="scope: 'compareProducts'" data-role="compare-products-sidebar">
+    <div class="block-title">
+        <strong id="block-compare-heading" role="heading" aria-level="2"><?php echo __('Shop By Brand');?>:</strong>
+    </div>
+    <ul class="items">
+	<?php  
+	foreach (range('A', 'Z') as $char) :?>
+		<?php if(isset($brands[$char])):?>
+			<div class="brand-char-sidebar">
+<!-- 				<strong> # <?php echo $char;?></strong> -->
+				<?php foreach($brands[$char] as $_brand):?>
+					<li><a href="<?php echo $this->getUrl('brand/view/',array('id'=>$_brand->getId()));?>"><?php echo $_brand->getName();?></a></li>
+				<?php endforeach;?>
+			</div>
+		<?php endif;?>
+	<?php endforeach;?>
+	</ul>
+</div>

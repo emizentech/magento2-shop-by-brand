@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Emizentech. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../app/code/Magento/Cron/etc/crontab.xsd">
+    <group id="default">
+        <job name="make_some_action_name_here" instance="Emizentech\ShopByBrand\Model\Cron" method="methodName">
+            <schedule>0 0 * * *</schedule>
+        </job>
+    </group>
+</config>

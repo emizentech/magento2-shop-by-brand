@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Emizentech. All rights reserved.
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="Emizentech\ShopByBrand\Block\Adminhtml\Items\Edit\Tabs" name="emizentech_shopbybrand_items_edit_tabs">
+                <block class="Emizentech\ShopByBrand\Block\Adminhtml\Items\Edit\Tab\Main" name="emizentech_shopbybrand_items_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">emizentech_shopbybrand_items_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Emizentech\ShopByBrand\Block\Adminhtml\Items\Edit" name="shopbybrand_items_edit"/>
+        </referenceContainer>
+    </body>
+</page>
