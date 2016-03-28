@@ -17,7 +17,11 @@ $media = $this->getImageMediaPath();
 <?php foreach($featured as $_fbrand):?>
 	
 	<span>
-		<a href="<?php echo $this->getUrl('brand/view/',array('id'=>$_fbrand->getId()));?>">
+			<?php if($_fbrand->getUrlKey()):?>
+				<a href="<?php echo $this->getUrl('brand').$_fbrand->getUrlKey()?>">
+			<?php else:?>
+				<a href="<?php echo $this->getUrl('brand/view/',array('id'=>$_fbrand->getId()));?>">
+			<?php endif;?>
 			<?php if($_fbrand->getLogo()):?>
 				<img class="f-barnd-img" src="<?php echo $media.$_fbrand->getLogo() ?>" title="<?php echo $_fbrand->getName();?>" alt="<?php echo $_fbrand->getName();?>" style="height:100px"/>
 			<?php else:?>
@@ -38,7 +42,13 @@ foreach (range('A', 'Z') as $char) :?>
 			<strong> # <?php echo $char;?></strong>
 			<ul>
 			<?php foreach($brands[$char] as $_brand):?>
-				<li><a href="<?php echo $this->getUrl('brand/view/',array('id'=>$_brand->getId()));?>"><?php echo $_brand->getName();?></a></li>
+				<li>
+					<?php if($_brand->getUrlKey()):?>
+						<a href="<?php echo $this->getUrl('brand').$_brand->getUrlKey()?>"><?php echo $_brand->getName();?></a>
+					<?php else:?>
+						<a href="<?php echo $this->getUrl('brand/view/',array('id'=>$_brand->getId()));?>"><?php echo $_brand->getName();?></a>
+					<?php endif;?>
+				</li>
 			<?php endforeach;?>
 			</ul>
 		</div>
