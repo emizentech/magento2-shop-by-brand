@@ -51,7 +51,9 @@ class Save extends \Emizentech\ShopByBrand\Controller\Adminhtml\Items
 	//             var_dump($data);die;
 				if(isset($data['logo']['delete']) && $data['logo']['delete'] == '1')
 					$data['logo'] = '';
-			
+			if(isset($data['image']['value']) && strlen($data['image']['value']) > 1)
+                        	$data['image'] = $data['image']['value'];
+
                 
                 
                 
