@@ -36,6 +36,25 @@ $media = $this->getImageMediaPath();
 <br />
 <h3>ALL Brands</h3>
 <?php  
+foreach (range('0', '9') as $char) :?>
+	<?php if(isset($brands[$char])):?>
+		<div class="brand-char">
+			<strong> # <?php echo $char;?></strong>
+			<ul>
+			<?php foreach($brands[$char] as $_brand):?>
+				<li>
+					<?php if($_brand->getUrlKey()):?>
+						<a href="<?php echo $this->getUrl('brand').$_brand->getUrlKey()?>"><?php echo $_brand->getName();?></a>
+					<?php else:?>
+						<a href="<?php echo $this->getUrl('brand/view/',array('id'=>$_brand->getId()));?>"><?php echo $_brand->getName();?></a>
+					<?php endif;?>
+				</li>
+			<?php endforeach;?>
+			</ul>
+		</div>
+	<?php endif;?>
+<?php endforeach;?>
+<?php  
 foreach (range('A', 'Z') as $char) :?>
 	<?php if(isset($brands[$char])):?>
 		<div class="brand-char">
