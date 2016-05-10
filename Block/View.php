@@ -101,46 +101,17 @@ class View extends \Magento\Framework\View\Element\Template
     public function imageHelperObj(){
         return $this->_imageHelper;
     }
-     /**
-     * Return HTML block with price
-     *
-     * @param \Magento\Catalog\Model\Product $product
-     * @param string $priceType
-     * @param string $renderZone
-     * @param array $arguments
-     * @return string
-     * @SuppressWarnings(PHPMD.NPathComplexity)
-     */
-    public function getProductPriceHtml(
+    
+    public function getProductPricetoHtml(
         \Magento\Catalog\Model\Product $product,
-        $priceType = null,
-        $renderZone = \Magento\Framework\Pricing\Render::ZONE_ITEM_LIST,
-        array $arguments = []
-    ) {
-        if (!isset($arguments['zone'])) {
-            $arguments['zone'] = $renderZone;
-        }
-        $arguments['zone'] = isset($arguments['zone'])
-            ? $arguments['zone']
-            : $renderZone;
-        $arguments['price_id'] = isset($arguments['price_id'])
-            ? $arguments['price_id']
-            : 'old-price-' . $product->getId() . '-' . $priceType;
-        $arguments['include_container'] = isset($arguments['include_container'])
-            ? $arguments['include_container']
-            : true;
-        $arguments['display_minimal_price'] = isset($arguments['display_minimal_price'])
-            ? $arguments['display_minimal_price']
-            : true;
-            /** @var \Magento\Framework\Pricing\Render $priceRender */
+        $priceType = null
+	) {
         $priceRender = $this->getLayout()->getBlock('product.price.render.default');
-        
         $price = '';
         if ($priceRender) {
             $price = $priceRender->render(
                 \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
-                $product,
-                $arguments
+                $product
             );
         }
         return $price;
