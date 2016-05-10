@@ -1,18 +1,12 @@
 {
     "name": "emizentech/shopbybrand",
-    "description": "Emizentech Shop By Brand",
-    "require": {
-        "php": "~5.5.0|~5.6.0|~7.0.0"
-    },
-    "type": "magento2-module",
-    "version": "1.0.0",
-    "license": [
-        "Commercial"
-    ],
-    "autoload": {
-        "files": [ "registration.php" ],
-        "psr-4": {
-            "Emizentech\\ShopByBrand\\": ""
+    "description": "Shop By Brand for Magento2.x",
+    "authors": [
+        {
+            "name": "Amit Samsukha",
+            "email": "amit@emizentech.com"
         }
-    }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
 }
