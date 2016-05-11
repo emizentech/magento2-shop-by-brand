@@ -1,6 +1,6 @@
 <?php 
 $brand = $this->getBrand();
-$productCollection = $this->getProductCollection();
+$productCollection = $this->getCollection();
 $imagewidth = '200';
 $imageheight = '200';
 	$mode = 'grid';
@@ -109,5 +109,10 @@ $type = 'widget-new-grid';
                     <?php
 	endforeach ?>
 </div>
+ <div class="toolbar-bottom">
+         <div class="toolbar bottom">
+            <?php echo $block->getPagerHtml(); ?>
+         </div>
+      </div>
 </div>
 </div>

@@ -53,6 +53,7 @@ class View extends \Magento\Framework\View\Element\Template
             $context,
             $data
         );
+	$this->setCollection($this->getProductCollection());
     }
 	 public function getAddToCartUrl($product, $additional = [])
     {
@@ -62,7 +63,26 @@ class View extends \Magento\Framework\View\Element\Template
     
     public function _prepareLayout()
     {
-        return parent::_prepareLayout();
+        parent::_prepareLayout();
+	/** @var \Magento\Theme\Block\Html\Pager */
+        $pager = $this->getLayout()->createBlock(
+           'Magento\Theme\Block\Html\Pager',
+           'brand.view.pager'
+        );
+        $pager->setLimit(12)
+            ->setShowAmounts(false)
+            ->setCollection($this->getCollection());
+        $this->setChild('pager', $pager);
+        $this->getCollection()->load();
+ 
+        return $this;
+    }
+	/**
+     * @return string
+     */
+    public function getPagerHtml()
+    {
+        return $this->getChildHtml('pager');
     }
     
     public function getBrand(){

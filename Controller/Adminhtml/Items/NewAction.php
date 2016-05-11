@@ -46,7 +46,7 @@ class NewAction extends \Emizentech\ShopByBrand\Controller\Adminhtml\Items
 			//var_dump($option->debug());
 			
 			$item = $this->_objectManager->create('Emizentech\ShopByBrand\Model\Items');
-			if(!empty($option->getValue())){			
+			if($option->getValue()){			
 				$id = (int)$option->getValue();
 				if ($id) {
                     $item->load($id);
