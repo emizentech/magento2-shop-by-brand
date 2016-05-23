@@ -1,5 +1,7 @@
 <?php
 namespace Emizentech\ShopByBrand\Block;
+use Magento\Catalog\Model\Product\Attribute\Source\Status;
+
 class View extends \Magento\Framework\View\Element\Template
 {
 	
@@ -114,6 +116,10 @@ class View extends \Magento\Framework\View\Element\Template
 //     	die;
 		$collection->addAttributeToSelect('name');
     	$collection->addStoreFilter()->addAttributeToFilter('manufacturer' , $brand->getAttributeId());
+    	$collection->addAttributeToFilter('status', Status::STATUS_ENABLED);
+
+    	
+    	
 //     	var_dump(count($collection));
     	return $collection;
     }
