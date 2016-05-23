@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    	<referenceContainer name="columns.top">
+    		<block class="Emizentech\ShopByBrand\Block\ProductBrand" name="catalog.product.brand" template="Emizentech_ShopByBrand::catalog/product_brand.phtml" after="page.main.title"/>
+    	</referenceContainer>
+    	<referenceContainer name="product.info.main">
+    		<block class="Emizentech\ShopByBrand\Block\ProductBrand" name="catalog.product.brand" template="Emizentech_ShopByBrand::catalog/product_brand.phtml" after="page.main.title" />
+    	</referenceContainer>
+<!-- 
+		<referenceBlock name="page.main.title">
+            <action method='setTemplate'>
+					<argument name='template' xsi:type='string'>Emizentech_ShopByBrand::catalog/producttitlewithbrand.phtml</argument>
+			</action>
+        </referenceBlock>
+ -->
+    </body>
+</page>

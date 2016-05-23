@@ -1,0 +1,18 @@
+<?php
+$media = $this->getImageMediaPath();
+$_fbrand = $block->getBrand();
+?>
+<span class="product-brand" style="float: left; clear: both; width: 100%;">
+	<?php if($_fbrand->getUrlKey()):?>
+		<a href="<?php echo $this->getUrl('brand').$_fbrand->getUrlKey()?>">
+	<?php else:?>
+		<a href="<?php echo $this->getUrl('brand/view/',array('id'=>$_fbrand->getId()));?>">
+	<?php endif;?>
+	<?php if($_fbrand->getLogo()):?>
+		<img class="f-barnd-img" src="<?php echo $media.$_fbrand->getLogo() ?>" title="<?php echo $_fbrand->getName();?>" alt="<?php echo $_fbrand->getName();?>" style="height:40px"/>
+	<?php else:?>
+	<span class="brand-title">
+		<?php echo $_fbrand->getName();?>
+	</span>
+	<?php endif;?>
+</span>
