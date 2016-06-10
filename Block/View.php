@@ -116,7 +116,9 @@ class View extends \Magento\Framework\View\Element\Template
 //     	die;
 		$collection->addAttributeToSelect('name');
     	$collection->addStoreFilter()->addAttributeToFilter('manufacturer' , $brand->getAttributeId());
+    	
     	$collection->addAttributeToFilter('status', Status::STATUS_ENABLED);
+    	$collection->addAttributeToFilter('visibility', array('neq' => \Magento\Catalog\Model\Product\Visibility::VISIBILITY_NOT_VISIBLE));
 
     	
     	
