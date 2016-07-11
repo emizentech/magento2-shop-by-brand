@@ -15,14 +15,8 @@ Add GIT Repository to composer
 composer config repositories.emizentech-magento2-shopbybrand vcs https://github.com/emizentech/magento2-shop-by-brand/
 </pre>
 
-Since this package is in a development stage, you will need to change the minimum-stability as well to the composer.json file: -
-<pre>
-"minimum-stability": "dev",
-</pre>
-
 After that, need to install this module as follows:
 <pre>
-  composer require magento/magento-composer-installer
   composer require emizentech/shopbybrand
 </pre>
 
