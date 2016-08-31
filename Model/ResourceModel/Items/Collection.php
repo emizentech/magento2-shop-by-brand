@@ -3,7 +3,7 @@
  * Copyright © 2015 Emizentech. All rights reserved.
  */
 
-namespace Emizentech\ShopByBrand\Model\Resource\Items;
+namespace Emizentech\ShopByBrand\Model\ResourceModel\Items;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
@@ -14,6 +14,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     protected function _construct()
     {
-        $this->_init('Emizentech\ShopByBrand\Model\Items', 'Emizentech\ShopByBrand\Model\Resource\Items');
+        $this->_init('Emizentech\ShopByBrand\Model\Items', 'Emizentech\ShopByBrand\Model\ResourceModel\Items');
     }
 }

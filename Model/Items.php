@@ -15,6 +15,6 @@ class Items extends \Magento\Framework\Model\AbstractModel
     protected function _construct()
     {
         parent::_construct();
-        $this->_init('Emizentech\ShopByBrand\Model\Resource\Items');
+        $this->_init('Emizentech\ShopByBrand\Model\ResourceModel\Items');
     }
 }

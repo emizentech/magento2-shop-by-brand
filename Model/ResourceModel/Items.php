@@ -3,7 +3,7 @@
  * Copyright © 2015 Emizentech. All rights reserved.
  */
 
-namespace Emizentech\ShopByBrand\Model\Resource;
+namespace Emizentech\ShopByBrand\Model\ResourceModel;
 
 class Items extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
