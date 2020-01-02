@@ -38,17 +38,6 @@ class Index extends \Magento\Framework\View\Element\Template
     }
     
      public function getFeaturedBrands(){
-	   //  $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-//     	$model = $objectManager->create(
-//             'Magento\Catalog\Model\ResourceModel\Eav\Attribute'
-//         )->setEntityTypeId(
-//             \Magento\Catalog\Model\Product::ENTITY
-//         );
-// 
-// 		$model->loadByCode(\Magento\Catalog\Model\Product::ENTITY,'manufacturer');
-// 		return $model->getOptions();
-
-
 		$collection = $this->_brandFactory->create()->getCollection();
 		$collection->addFieldToFilter('is_active' , \Emizentech\ShopByBrand\Model\Status::STATUS_ENABLED);
 		$collection->addFieldToFilter('featured' , \Emizentech\ShopByBrand\Model\Status::STATUS_ENABLED);

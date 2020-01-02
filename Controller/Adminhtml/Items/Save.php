@@ -48,7 +48,7 @@ class Save extends \Emizentech\ShopByBrand\Controller\Adminhtml\Items
 				} catch (\Exception $e) {
 					//unset($data['image']);
 				}
-	//             var_dump($data);die;
+                
 				if(isset($data['logo']['delete']) && $data['logo']['delete'] == '1')
 					$data['logo'] = '';
 			if(isset($data['logo']['value']) && strlen($data['logo']['value']) > 1)

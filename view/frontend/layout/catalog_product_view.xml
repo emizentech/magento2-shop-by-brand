@@ -7,12 +7,5 @@
     	<referenceContainer name="product.info.main">
     		<block class="Emizentech\ShopByBrand\Block\ProductBrand" name="catalog.product.brand" template="Emizentech_ShopByBrand::catalog/product_brand.phtml" after="page.main.title" />
     	</referenceContainer>
-<!-- 
-		<referenceBlock name="page.main.title">
-            <action method='setTemplate'>
-					<argument name='template' xsi:type='string'>Emizentech_ShopByBrand::catalog/producttitlewithbrand.phtml</argument>
-			</action>
-        </referenceBlock>
- -->
     </body>
 </page>

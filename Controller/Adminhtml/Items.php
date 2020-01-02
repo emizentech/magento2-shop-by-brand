@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2015 Emizentech. All rights reserved.
+ * Copyright © 2020 Emizentech. All rights reserved.
  */
 
 namespace Emizentech\ShopByBrand\Controller\Adminhtml;

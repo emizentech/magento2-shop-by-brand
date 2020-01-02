@@ -1,4 +1,4 @@
-<?php
+<?php 
 namespace Emizentech\ShopByBrand\Block;
 use Magento\Catalog\Model\Product\Attribute\Source\Status;
 
@@ -35,6 +35,7 @@ class View extends \Magento\Framework\View\Element\Template
     protected $_cartHelper;
 
     protected $_brandFactory;
+    protected $_request;
 
 
 	public function __construct(
@@ -43,6 +44,7 @@ class View extends \Magento\Framework\View\Element\Template
         \Magento\Catalog\Model\Product\Visibility $catalogProductVisibility,
         \Magento\Framework\App\Http\Context $httpContext,
         \Emizentech\ShopByBrand\Model\BrandFactory $brandFactory,
+        \Magento\Framework\App\Request\Http $request,
         array $data = []
     ) {
         $this->_productCollectionFactory = $productCollectionFactory;
@@ -51,6 +53,7 @@ class View extends \Magento\Framework\View\Element\Template
         $this->_imageHelper = $context->getImageHelper();
         $this->_brandFactory = $brandFactory;
         $this->_cartHelper = $context->getCartHelper();
+        $this->_request = $request;
         parent::__construct(
             $context,
             $data
@@ -87,21 +90,14 @@ class View extends \Magento\Framework\View\Element\Template
         return $this->getChildHtml('pager');
     }
     
-    public function getBrand(){
-	   //  $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-//     	$model = $objectManager->create(
-//             'Magento\Catalog\Model\ResourceModel\Eav\Attribute'
-//         )->setEntityTypeId(
-//             \Magento\Catalog\Model\Product::ENTITY
-//         );
-// 
-// 		$model->loadByCode(\Magento\Catalog\Model\Product::ENTITY,'manufacturer');
-// 		return $model->getOptions();
+    public function getBrand(){ 
+
 		$id = $this->getRequest()->getParam('id');
         if ($id) {
         	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-			$model = $objectManager->create('Emizentech\ShopByBrand\Model\Items');
-			$model->load($id);
+			$model = $objectManager->create('Emizentech\ShopByBrand\Model\Items');	
+            $model->load($id);
+
 			return $model;
 		}
 		return false;
@@ -112,17 +108,10 @@ class View extends \Magento\Framework\View\Element\Template
     	$brand = $this->getBrand();
     	$collection = $this->_productCollectionFactory->create();
     	$collection->addAttributeToSelect('*');
-//     	var_dump(get_class_methods($collection));
-//     	die;
 		$collection->addAttributeToSelect('name');
-    	$collection->addStoreFilter()->addAttributeToFilter('manufacturer' , $brand->getAttributeId());
-    	
+    	$collection->addStoreFilter()->addAttributeToFilter('manufacturer' , $brand->getAttributeId());	
     	$collection->addAttributeToFilter('status', Status::STATUS_ENABLED);
     	$collection->addAttributeToFilter('visibility', array('neq' => \Magento\Catalog\Model\Product\Visibility::VISIBILITY_NOT_VISIBLE));
-
-    	
-    	
-//     	var_dump(count($collection));
     	return $collection;
     }
     
