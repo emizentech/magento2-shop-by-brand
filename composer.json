@@ -15,5 +15,11 @@
         "psr-4": {
             "Emizentech\\ShopByBrand\\": ""
         }
+    },
+    "repositories": {
+        "shopbybrand": {
+            "type": "git",
+            "url": "https://github.com/emizentech/magento2-shop-by-brand"
+        }
     }
 }
